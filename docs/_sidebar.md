@@ -1,17 +1,17 @@
 <!-- docs/_sidebar.md -->
 
-* [Home](readme)
+* [Home](README.md)
 * [Guide](guide.md)
 
 * Front-End
-    * [HTML](frontend/HTML/)
-    * [CSS](frontend/CSS/)
-    * [JavaScript](frontend/JavaScript/)
+    * [HTML](frontend/HTML/readme.md)
+    * [CSS](frontend/CSS/readme.md)
+    * [JavaScript](frontend/JavaScript/readme.md)
 
 
 * Back-End
     * [Node.js](backend/Node.js/)
-    * [MongoDB](backend/MongoDB/)
+    * [MongoDB](backend/MongoDB/readme)
 
 * Other
     * [Markdown](other/Markdown)
