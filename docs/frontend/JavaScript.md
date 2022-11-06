@@ -130,7 +130,8 @@ obj.name = 'Jack'
 obj.age = 18
 ```
 #### (2) 内置构造函数的方式创建对象
-- JS 内置了一个构造函数object()，用于创建一个对象使用的
+- JS 内置了一个构造函数Object()，用于创建一个对象使用的
+  ==*注意 Object() 要首字母大写*==
 ```js
 // 创建一个空对象
 var obj = new Object()
@@ -285,15 +286,65 @@ var arr2 = new Array(10)
 // 创建一个有内容的数组
 var arr3 = new Array(1, 2, 3)
 ```
+### 14-2 数组的 length
+- length 就是表示数组的长度，数组里面有多少个成员，length 就是多少
+```js
+// 创建一个数组
+var arr = [1, 2, 3]
+console.log(arr.length) // 3
+```
+- length 可读可写，可用于清空数组
+```js
+var arr1 = [1,2,3,4,8]
+arr1.length = 3
+console.log(arr1) // [1,2,3]
+arr1.length = 0
+console.log(arr1) // []
+```
+var arr2 = ["Bowen","Benjamin","Miles"]
+### 14-3 数组的索引
+- **索引**，也叫做下标，是指一个数据在数组里面排在第几个的位置
 
+注意： ==在所有的语言里面，索引都是从 0 开始的==。在 JS 里面也一样，数组的索引从 0 开始
+- 想获取数组中的第几个就使用 数组[索引] 来获取
+```javascript
+var arr = ['hello', 'world']
+console.log(arr[0]) // hello
+console.log(arr[1]) // world
+console.log(arr[2]) // undefined
+arr[0] = "Ben"
+console.log(arr) // ['Ben','World']
+arr[2] = "Bowen" 
+console.log(arr) // ['Ben','World','Bowen']
+```
+ ### 14-4 数组的遍历
+ ```javascript
+ var arr3 =[3,4,5,6,7,8]
+ for (var i=0; i<arr3.length; i++) {    
+    console.log(arr3[i])
+ } 
+ ```
+### 14-5 数组的复制
+```javascript
+var arr = [3,4,5,6]
+var arr1 = arr // 相当于配了把钥匙，房间没变
+arr1[0] = 1
+console.log(arr1) // [1,4,5,6]
+console.log(arr) // [1,4,5,6] 
 
+var arr2 = [] // 开了间新房
+for (var i=0; i<arr.length; i++) {
+    arr2[i] = arr[i] 
+}                      // 买了和arr一模一样的一套家具
+arr2[0] = 7            // arr2换家具不影响arr
+console.log(arr2,arr1) // [7,4,5,6] [1,4,5,6]
+```
+### 14-6 数组的排序
+- 排序，就是把一个乱序的数组，通过我们的处理，让他变成一个有序的数组
 
-
-
-
-
-
-
+#### (1) 冒泡排序
+![](2022-11-07-08-49-28.png)  
+ 
 
 
 
