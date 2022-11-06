@@ -68,7 +68,7 @@ console.log(age)
 - 在局部作用域中定义的变量只能在这个局部作用域内部使用
 - 在 JS 中==只有函数能生成一个局部作用域==，别的都不行
 - 每一个函数，都是一个局部作用域
-```javascript
+<!-- ```javascript
 <script>
 var myName = "Ben"
 function test() {
@@ -82,12 +82,11 @@ console.log(nickName)
 console.log(myName)
 test()
 </script>
-
 // Error: nickName is not defined
 // Ben
 // undefined 'Ben'
 // test xiaoming
-```
+``` -->
 #### 访问规则
 
 - 当想获取一个变量的值的时候，我们管这个行为叫做 **访问**
