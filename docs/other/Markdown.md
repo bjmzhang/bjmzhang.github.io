@@ -25,6 +25,7 @@
 
 #### 装了Paste Image这个插件后：
 可以直接copy paste图片了。但要注意复制快捷键是Ctrl+Alt+V
+
 ![](2022-11-06-15-55-05.png)
 *这是图片的caption*
 
