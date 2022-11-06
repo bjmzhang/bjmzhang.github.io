@@ -4,14 +4,14 @@
 
 
 * Front-End
-    * [HTML](frontend/HTML/)
-    * [CSS](frontend/CSS/)
-    * [JavaScript](frontend/JavaScript/)
+    * [HTML](frontend/HTML/README)
+    * [CSS](frontend/CSS/README)
+    * [JavaScript](frontend/JavaScript/README)
 
 
 * Back-End
-    * [Node.js](backend/Node.js/)
-    * [MongoDB](backend/MongoDB/)
+    * [Node.js](backend/Node.js/README)
+    * [MongoDB](backend/MongoDB/README)
 
 * Other
     * [Markdown](other/Markdown)
