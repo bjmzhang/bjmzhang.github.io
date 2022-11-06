@@ -17,6 +17,18 @@
 
 强调！**加粗了** *变斜了*
 
+#### Blockquote引用：
+> blockquote
+
+#### Task List:
+- [x] Write the press release
+- [x] Update the website
+- [x] Contact the media
+
+#### High Light:
+I need to highlight these ==very important words==.
+I need to highlight these <mark>very important words</mark>.
+
 #### 装了Markdown All in One之后：
 1. 选中文字Ctrl+B切换 **加粗**
 2. 选中文字Ctrl+i切换 *斜体*
