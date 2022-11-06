@@ -6,7 +6,7 @@
 * Front-End
     * [HTML](frontend/HTML/README)
     * [CSS](frontend/CSS/README)
-    * [JavaScript](frontend/JavaScript/README)
+    * [JavaScript](frontend/JavaScript/JavaScript)
 
 
 * Back-End
