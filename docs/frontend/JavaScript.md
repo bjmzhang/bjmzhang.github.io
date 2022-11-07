@@ -343,8 +343,250 @@ console.log(arr2,arr1) // [7,4,5,6] [1,4,5,6]
 - 排序，就是把一个乱序的数组，通过我们的处理，让他变成一个有序的数组
 
 #### (1) 冒泡排序
-![](2022-11-07-08-49-28.png)  
- 
+
+![](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg-blog.csdnimg.cn%2F20210415103243428.gif%23pic_center&refer=http%3A%2F%2Fimg-blog.csdnimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670363922&t=22fd07e44a3a2a76992bde6ef330c51e)  
+
+- 思考冒泡排序过程：先遍历数组，让挨着的两个进行比较，如果前一个比后一个大，那么就把两个换个位置。数组遍历一遍以后，那么最后一个数字就是最大的那个了。然后进行第二遍的遍历，还是按照之前的规则，第二大的数字就会跑到倒数第二的位置。以此类推，最后就会按照顺序把数组排好了
+
+```javascript
+for (var j = 0; j < arr.length - 1; j++) {
+  for (var i = 0; i < arr.length - 1 - j; i++) {
+    // 判断，如果数组中的当前一个比后一个大，那么两个交换一下位置
+    if (arr[i] > arr[i + 1]) {
+      var tmp = arr[i]
+      arr[i] = arr[i + 1]
+      arr[i + 1] = tmp
+    }
+  }
+}
+```
+#### (2) 选择排序
+- 思考选择排序过程：先假定数组中的第 0 个就是最小的数字的索引，然后遍历数组，只要有一个数字比我小，那么就替换之前记录的索引，直到数组遍历结束后，就能找到最小的那个索引，然后让最小的索引换到第 0 个的位置。再来第二趟遍历，假定第 1 个是最小的数字的索引，再遍历一次数组，找到比我小的那个数字的索引，遍历结束后换个位置。依次类推，也可以把数组排序好。
+
+![](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.pianshen.com%2Fimages%2F455%2Fbb59deb998b0413f85649ebdf416a73f.gif&refer=http%3A%2F%2Fwww.pianshen.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670365152&t=1348b75eef1d5c3a810c8b7db01a4f8f)
+
+```javascript
+for (var j = 0; j < arr.length - 1; j++) {
+    var minIndex = j  // 假定索引j是最小数值项
+    for (var i = j + 1; i < arr.length; i++) {
+        if (arr[i] < arr[minIndex]) {
+            minIndex = i
+        }
+    }
+    if (minIndex !== j) {
+        var tmp = arr[minIndex]
+        arr[minIndex] = arr[j]
+        arr[j] = tmp
+    }
+}
+```
+
+### 14-5 数组的常用方法
+- 数组是一个复杂数据类型，我们在操作它的时候就不能再想基本数据类型一样操作了。比如我们想改变一个数组：
+```javascript
+// 创建一个数组
+var arr = [1, 2, 3]
+// 我们想把数组变成只有 1 和 2
+arr = [1, 2]
+```
+- 这样肯定是不合理，因为这样不是在改变之前的数组, 而是相当于重新弄了一个数组给到 arr 这个变量了。这相当于把 arr 里面存储的地址给换了，也就是把存储空间换掉了，而不是在之前的空间里面修改。所以我们就需要借助一些方法，在不改变存储空间的情况下，把存储空间里面的数据改变了
+
+#### （1）数组常用方法之 push
+```javascript
+var arr = [1, 2, 3]
+// 使用 push 方法追加一个元素在末尾
+arr.push(4)
+console.log(arr) // [1, 2, 3, 4]
+```
+```javascript
+var arr = [1,2,3]
+var res = arr.push("Ben")
+console.log(arr) // [1,2,3,'Ben']
+console.log("返回值", res) // 返回值 4
+```
+- ==array.push()的返回值是array的长度==
+
+#### （2）数组常用方法之 pop
+```javascript
+var arr = [1, 2, 3]
+// 使用 pop 方法删除末尾的一个元素
+arr.pop()
+console.log(arr) // [1, 2]
+```
+```javascript
+var arr = ['Ben','Miles','Jiali','Bowen']
+var respop = arr.pop()
+console.log(arr) // ['Ben','Miles','Jiali']
+console.log("返回值", respop) // 返回值 Bowen
+```
+- ==array.pop()的返回值是所删除的元素==
+  
+#### （3）数组常用方法之 unshift
+- unshift 是在数组的最前面添加一个元素
+```javascript
+var arr = [1, 2, 3]
+// 使用 unshift 方法想数组的最前面添加一个元素
+arr.unshift(4)
+console.log(arr) // [4, 1, 2, 3]
+```
+- ==array.unshift()的返回值是array的长度==
+
+#### （4）数组常用方法之 shift
+- shift 是删除数组最前面的一个元素
+```javascript
+var arr = [1, 2, 3]
+// 使用 shift 方法删除数组最前面的一个元素
+arr.shift()
+console.log(arr) // [2, 3]
+```
+- ==array.shift()的返回值是所删除的元素==
+  
+#### （5）数组常用方法之 splice
+
+- splice 是截取数组中的某些内容，按照数组的索引来截取。语法： splice(从哪一个索引位置开始，截取多少个，替换的新元素) （第三个参数可以不写）
+```javascript
+var arr = [1, 2, 3, 4, 5]
+var res = arr.splice(1, 2)  // 从1号索引位开始删除2个元素
+console.log(arr) // [1, 4, 5]
+console.log("返回值", res) // 返回值 [2,3]
+```
+- ==array.splice()的返回值是所删除的元素==
+
+```javascript
+var arr = ["Bowen","Jiali","Miles"]
+var res = arr.splice(1,2,"Ben")
+console.log(arr) // ['Bowen','Ben']
+console.log("返回值", res) // 返回值 ['Jiali', 'Miles']
+```
+#### （6）数组常用方法之 slice（不影响原数组）
+- slice() 方法返回一个新的数组对象，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括end）。原始数组不会被改变。
+```javascript
+slice() // 截取全部
+slice(start) // 截取start后面的所有（包括start）
+slice(start, end) // 截取start开始到end（包括start，不包括end）
+```
+```javascript
+// slice 截取
+var arr = ["Ben","Jiali","Bowen","Miles"]
+var arr2 = arr.slice(0,2)
+console.log(arr,arr2) // ['Ben', 'Jiali', 'Bowen', 'Miles'] ['Ben', 'Jiali']
+```
+- 注意：==array.splice()会影响原数组，而array.slice()不会影响原数组==
+#### （7）数组常用方法之 reverse
+- reverse 是用来反转数组使用的
+```javascript
+var arr = [1, 2, 3]
+// 使用 reverse 方法来反转数组
+arr.reverse()
+console.log(arr) // [3, 2, 1]
+```
+#### （8）数组常用方法之 sort
+- sort 是用来给数组排序的。默认排序顺序是将元素转换为字符串，然后比较它们的 UTF-16 代码单元值序列从小到大排列。
+```javascript
+var arr = [11, 31, 56, 7, 3]
+arr.sort()
+console.log(arr) //  [11, 3, 31, 56, 7]  比较第一位，第一位一样时比较第二位
+```
+```javascript
+// sort接受一个回调函数，将数组从小到大或从大到小排列
+var arr = [45,3,21,2,7,1]
+arr.sort(function(x,y){
+    return x-y // 从小到大排列
+})
+console.log(arr)
+arr.sort(function(x,y){
+    return y-x // 从大到小排列
+})
+console.log(arr)
+```
+
+#### （9）数组常用方法之 concat（不影响原数组）
+- concat 是把多个数组进行拼接。和之前的方法有一些不一样的地方，就是 ==concat 不会改变原始数组，而是返回一个新的数组==
+```javascript
+var arr = [1, 2, 3]
+// 使用 concat 方法拼接数组
+var newArr = arr.concat([4, 5, 6])
+console.log(arr) // [1, 2, 3]
+console.log(newArr) // [1, 2, 3, 4, 5, 6]
+```
+  
+#### （10）数组常用方法之 join（不影响原数组）
+- join 是把数组里面的每一项内容链接起来，变成一个字符串。可以自己定义每一项之间链接的内容 ==join(要以什么内容链接)不会改变原始数组==，而是把链接好的字符串返回
+```javascript
+var arr = [1, 2, 3]
+// 使用 join 链接数组
+var str = arr.join('-')
+console.log(arr) // [1, 2, 3]
+console.log(str) // 1-2-3
+```
+#### （11）数组常用方法之 indexOf（不影响原数组）
+- indexOf 用来找到数组中某一项内容的索引值
+- Syntax： indexOf(searchElement)
+indexOf(searchElement, fromIndex)
+```javascript
+var arr = [1, 2, 3, 4, 5]
+// 使用 indexOf 查找数组中的某一项的索引号
+var index = arr.indexOf(3)
+console.log(index) // 2
+```
+- ==果你要找的内容在数组中没有，那么就会返回 -1==
+
+#### （12）数组常用方法之 lastIndexOf（不影响原数组）
+- lastIndexOf() 方法返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 fromIndex 处开始。
+- Syntax: lastIndexOf(searchElement)
+lastIndexOf(searchElement, fromIndex)
+
+> #### 经典案例：数组去重
+```javascript
+// 方法1
+var arr = [1,2,3,4,3,5,6,2,1]
+var arr2 = []
+for (var i=0; i<arr.length;i++) {
+    if (arr2.indexOf(arr[i])=== -1){
+        arr2.push(arr[i])
+    }
+}
+console.log(arr,arr2) // [1, 2, 3, 4, 3, 5, 6, 2, 1]  [1, 2, 3, 4, 5, 6]
+```
+```javascript
+// 方法2 - 利用对象
+var arr = [1,2,3,4,3,5,6,2,1]
+var obj = {}
+for (var i=0; i<arr.length; i++) {
+    obj[arr[i]] = "随便"
+}
+console.log(obj)
+var arr2 = []
+for (var i in obj) {
+    arr2.push(i-0)
+}
+console.log(arr2)
+```
+```javascript
+// 方法3 - new set
+var arr = [1,2,3,4,3,5,6,2,1]
+var set1 = new Set(arr)
+var arr1 = Array.from(set1)
+console.log(set1)
+console.log(arr1)
+```
+#### （13）数组常用方法之 forEach
+- 和 for 循环一个作用，就是用来遍历数组的
+- 语法：arr.forEach(function (item, index, arr) {})
+```javascript
+var arr = [1, 2, 3]
+// 使用 forEach 遍历数组
+arr.forEach(function (item, index, arr) {
+// item 就是数组中的每一项
+// index 就是数组的索引
+// arr 就是原始数组
+console.log('数组的第 ' + index + ' 项的值是 ' + item + '，原始数组是', arr)
+})
+```
+
+
+
+
 
 
 
