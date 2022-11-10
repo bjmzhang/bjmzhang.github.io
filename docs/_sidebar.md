@@ -7,7 +7,7 @@
     * [HTML](frontend/HTML)
     * [CSS](frontend/CSS)
     * [JavaScript](frontend/JavaScript)
-    * [Jonas JavaScript](fontend/CompleteJS)
+    * [Jonas JavaScript](frontend/CompleteJS)
 
 
 * Back-End
