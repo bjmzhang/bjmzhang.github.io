@@ -576,6 +576,7 @@ console.log(arr1)
 ```javascript
 var arr = [1, 2, 3]
 // 使用 forEach 遍历数组
+// 回调函数 
 arr.forEach(function (item, index, arr) {
 // item 就是数组中的每一项
 // index 就是数组的索引
@@ -583,8 +584,10 @@ arr.forEach(function (item, index, arr) {
 console.log('数组的第 ' + index + ' 项的值是 ' + item + '，原始数组是', arr)
 })
 ```
-
-
+- forEach() 的时候传递的那个函数，会根据数组的长度执行
+- 数组的长度是多少，这个函数就会执行多少回
+#### （14）数组常用方法之 map
+- 和 forEach 类似，只不过可以对数组中的每一项进行操作，返回一个新的数组
 
 
 

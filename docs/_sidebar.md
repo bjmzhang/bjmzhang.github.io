@@ -7,6 +7,7 @@
     * [HTML](frontend/HTML)
     * [CSS](frontend/CSS)
     * [JavaScript](frontend/JavaScript)
+    * [The Complete JavaScript Course 2023: From Zero to Expert!](fontend/CompleteJS)
 
 
 * Back-End
