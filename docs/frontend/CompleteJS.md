@@ -150,3 +150,72 @@ console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bil
 ```
 
 ## JavaScript Releases: ES5, ES6+ and ESNext
+
+## Activating Strict Mode
+- Strict Mode is a special mode that we can active in JavaScript, which makes it easier for us to write a secure JavaScript code.
+- All we have to do to activate strict mode is to write this ring at the beginning of the script:
+```json
+'use strict'; 
+```
+- Always just put strict mode in the beginning of your scripts and like that write more secure code.
+
+## Functions
+- Function is simply a piece of code that we can reuse over and over again in our code.
+
+```javascript
+function logger() {
+    console.log('My name is Ben');
+}
+
+// calling / running / invoking function:
+logger();
+logger();
+```
+```javascript
+function fruitProcessor(apples, oranges) {
+    const juice = `Juice wit ${apples} apples and ${oranges} oranges.
+ `
+    return juice;
+}
+
+const appleJuice = fruitProcessor(5, 0);
+console.log(appleJuice);
+
+const appleOrangeJuice = fruitProcessor(2, 4);
+console.log(appleOrangeJuice);
+```
+
+## Function Declarations VS. Expressions
+```javascript
+
+// Function declaration
+function calcAge1(birthYeah) {
+    return 2037 - birthYeah;
+}
+
+const age1 = calcAge1(1991);
+console.log(age1);
+
+// Function expression
+const calcAge2 = function (birthYear) {
+    // anonymous function (a function without a name)
+    return 2037 - birthYear;
+}
+const age2 = calcAge2(1991);
+console.log(age1, age2);
+```
+
+## Arrow Function
+```javascript
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2022 - birthYear;
+    const retirement = 65 - age;
+    // return retirement;
+    return `${firstName} retires in ${retirement} years`;
+}
+
+console.log(yearsUntilRetirement(1988, 'Ben'));
+console.log(yearsUntilRetirement(1995, 'Jiali'));
+```
+## Functions Calling Other Functions
+
