@@ -8,6 +8,7 @@
     * [CSS](frontend/CSS)
     * [JavaScript](frontend/JavaScript)
     * [Jonas JavaScript](frontend/CompleteJS)
+    * [JavaScript - Key Point](frontend/JS_KeyPoint)
 
 
 * Back-End
