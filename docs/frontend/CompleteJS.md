@@ -519,3 +519,41 @@ while (dice !== 6) {
 ```
 
 # JavaScript in the Browser: DOM and Events Fundamentals
+
+## What's the DOM and DOM Manipulation
+
+- DOM: Document Object Model - a structured representation of HTML documents. It allows us to use JavaScript to access HTML elements and styles in order to manipulate them.
+- DOM is basically a connection point between HTML documents and JavaScript code.
+- The DOM is automatically created by the browser as soon as the HTML page loads. And it's stored in a tree structure.
+
+### DOM !== JavaScript
+
+![](2022-11-14-05-52-53.png)
+
+## Handling Click Events
+
+- Event Listener
+- Event Handler
+
+## Refactoring Our Code: The Dry Principle
+
+- Refactoring: to restructure the code without how changing how it works. So basically we do refactoring to improve the code and to eliminate duplicate code.
+
+## Handling an_ESC_Keypress Event
+
+- Keyup: only happens when we lift or finger off the key.
+- Keypress: fired continuously as we keep our finger on a certain key.
+- Keydown: fired as soon as we just press down the key.
+- Keyboard Event is a global event
+
+```javascript
+document.addEventListener("keydown", function () {
+  console.log("A key was pressed");
+});
+```
+
+```javascript
+const score0 = document.querySelector("#score--0");
+// same statement:
+const score0 = document.getElementByID("score--0");
+```
