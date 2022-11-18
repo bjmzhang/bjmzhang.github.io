@@ -1,5 +1,7 @@
 # Data Structures
 
+# Data Structures
+
 ## Array Destructuring
 
 **Destructuring** is basically a way of unpacking values from an array or an object into separate variables.
