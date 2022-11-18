@@ -9,11 +9,8 @@
   - [JavaScript](frontend/JavaScript)
   - [Jonas JavaScript](frontend/CompleteJS)
   - [JavaScript - Key Point](frontend/JS_KeyPoint)
-  - JavaScript
-
-    - [Data Structures](frontend\JavaScript\Data_Structures)
-
-  -
+  - [JavaScript](frontend\JavaScript)
+    - [Data Structures](frontend\JavaScript\Data_Structures.md)
 
 - Back-End
 
