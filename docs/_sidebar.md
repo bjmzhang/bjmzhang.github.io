@@ -6,7 +6,7 @@
 
   - [HTML](frontend/HTML)
   - [CSS](frontend/CSS)
-  - [JavaScript](frontend/JavaScript)
+  - [JavaScript Notes](frontend/JavaScript)
   - [Jonas JavaScript](frontend/CompleteJS)
   - [JavaScript - Key Point](frontend/JS_KeyPoint)
   - [JavaScript]
