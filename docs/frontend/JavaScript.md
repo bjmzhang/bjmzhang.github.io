@@ -1,4 +1,6 @@
-# Array Destructuring
+# Data Structures
+
+## Array Destructuring
 
 **Destructuring** is basically a way of unpacking values from an array or an object into separate variables.
 
@@ -88,7 +90,7 @@ const [s = 1, t = 1, u = 1] = [8, 9];
 console.log(s, t, u); // 8 9 1
 ```
 
-# Object Destructuring
+## Object Destructuring
 
 ```js
 const restaurant = {
@@ -186,7 +188,7 @@ restaurant.orderDelivery({
 });
 ```
 
-# The Spread Operator(...)
+## The Spread Operator(...)
 
 We can use the **spread operator (...)** to basically expand an array into all its elements. It allows us to quickly copy all or part of an existing array or object into another array or object.
 
@@ -264,4 +266,4 @@ console.log(restaurantCopy.name);
 console.log(restaurant.name);
 ```
 
-# Rest Pattern and Parameters
+## Rest Pattern and Parameters
