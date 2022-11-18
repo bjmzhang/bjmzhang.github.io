@@ -557,3 +557,101 @@ const score0 = document.querySelector("#score--0");
 // same statement:
 const score0 = document.getElementByID("score--0");
 ```
+
+# The **`this`** Keyword
+
+- **`this`** keyword/variable: Special variable that is created for every execution context (every function). Takes the value of (points to) the "owner" of the function in which the **`this`** keyword is used.
+- **`this`** 用于访问当前方法所属的对象。
+
+```javascript
+let obj = {
+  a: 12,
+  fn() {
+    console.log(this == obj);
+  },
+};
+obj.fn(); // true
+```
+
+```javascript
+document.onclick = function () {
+  console.log(this);
+}; // #document
+// this用于访问当前方法所属的对象，这里当前方法就是这个函数，所属的对象就是document。onclick是添加上去的一个事件，事件本质上就是一个函数，就是一个方法，而非元素对象。
+```
+
+- Three components of any execution context:
+  ✅ Variable environment
+  ✅ Scope chain
+  👉 **`this`** keyword
+- **`this`** is NOT static. It depends on how the function is called, and its value is only assigned when the function is actually called.
+- **`this`** does NOT point to the function itself, and also NOT the its variable environment!
+- **`this`** 是不跟着函数的定义走的，而是跟着函数的调用走的。
+
+```javascript
+function show() {
+  console.log(this);
+} // undefined
+```
+
+- Arrow functions do not get their own "**`this`** keyword".
+- 箭头函数中的 this 不是用来访问当前函数所属的对象的。
+
+### Some pitfalls of the **`this`** keyword related to regular functions and arrow functions.
+
+```javascript
+const ben = {
+  firstName: 'Ben',
+  year: 1991,
+  calcAge: function(){
+    console.log(this);
+    console.log(2037 - this.year);
+  }
+  greet: () => console.log('Hey 4{this.firstName});
+}
+ben.gret(); // Hey undefined
+```
+
+- You should never ever use an arrow function as a method. You will always just use a normal function expression as a method.
+- Avoid to use **`this`** keyword in a particular method.
+
+# Primitives vs. Objects (Primitives vs. Reference Types)
+
+```javascript
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age); // 30
+console.log(oldAge); // 31
+```
+
+```javascript
+const me = {
+  name: "Ben",
+  age: 30,
+};
+const friend = me;
+friend.age = 27;
+console.log("Friend:", friend);
+console.log("Me:", me);
+// Friend: {name:"Ben", age:27}
+// Me: {name:"Ben", age:27}
+```
+
+- Primitives:
+  👉 Number
+  👉 String
+  👉 Boolean
+  👉 Undefined
+  👉 Null
+  👉 Symbol
+  👉 BigInt
+- Everything else are basically Objects. Objects created with:
+  👉 Object literal
+  👉 Arrays
+  👉 Functions
+  👉 Many more...
+
+- JavaScript Engine:
+  ✅ Call Stack: where functions are executed.
+  ✅ Heap: where objects are stored in memory.
