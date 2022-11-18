@@ -1,19 +1,24 @@
 <!-- docs/_sidebar.md -->
 
-* [Home](README)
+- [Home](README)
 
+- Front-End
 
-* Front-End
-    * [HTML](frontend/HTML)
-    * [CSS](frontend/CSS)
-    * [JavaScript](frontend/JavaScript)
-    * [Jonas JavaScript](frontend/CompleteJS)
-    * [JavaScript - Key Point](frontend/JS_KeyPoint)
+  - [HTML](frontend/HTML)
+  - [CSS](frontend/CSS)
+  - [JavaScript](frontend/JavaScript)
+  - [Jonas JavaScript](frontend/CompleteJS)
+  - [JavaScript - Key Point](frontend/JS_KeyPoint)
+  - JavaScript
 
+    - [Data Structures](frontend\JavaScript\Data_Structures)
 
-* Back-End
-    * [Node.js](backend/Node.js)
-    * [MongoDB](backend/MongoDB)
+  -
 
-* Other
-    * [Markdown](other/Markdown)
+- Back-End
+
+  - [Node.js](backend/Node.js)
+  - [MongoDB](backend/MongoDB)
+
+- Other
+  - [Markdown](other/Markdown)
