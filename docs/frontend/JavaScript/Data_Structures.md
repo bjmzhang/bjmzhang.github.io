@@ -189,3 +189,79 @@ restaurant.orderDelivery({
 # The Spread Operator(...)
 
 We can use the **spread operator (...)** to basically expand an array into all its elements. It allows us to quickly copy all or part of an existing array or object into another array or object.
+
+_Create a new array WITHOUT spread operator:_
+
+```js
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr); // [1, 2, 7, 8, 9]
+```
+
+_Create a new array WITH spread operator:_
+
+```js
+const newArr = [1, 2, ...arr];
+console.log(newArr); // [1, 2, 7, 8, 9]
+console.log(..newArr); // 1 2 7 8 9
+```
+
+```js
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+```
+
+// Case: create shallow copies of arrays
+
+```js
+const mainMenuCopy = [...restaurant.mainMenu];
+const menu = [...restaurant.mainMenu, starterMenu];
+```
+
+The **spread operator (...)** works on all so-called **iterables**.
+
+- Iterables: arrays, strings, maps, sets. **NOT** objects.
+
+```js
+const str = "bowen";
+const letters = [...str, " ", "s."];
+console.log(letters); // ['b', 'o', 'w', 'e', 'n', ' ', 's.']
+```
+
+- Multiple values separated by a comma are usually expected when we pass arguments into a function, or when we build a new array.
+
+_Real-world example_
+
+```js
+const restaurant = {
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+};
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt("Ingredient 2?"),
+  prompt("Ingredient 3"),
+];
+console.log(ingredients);
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+```
+
+_Objects_
+
+```js
+const newRestaurant = {
+  foundedIn: 1998,
+  ...restaurant,
+  founder: "Guiseppe",
+};
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Ristorante Roma";
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+```
+
+# Rest Pattern and Parameters
